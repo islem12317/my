@@ -1,0 +1,65 @@
+@keyframes glisser {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.carte {
+  animation: glisser 0.5s ease-out;
+}
+.liste {
+  max-width: 520px;
+  margin: 20px auto 40px auto;
+  padding: 0 15px;
+}
+
+.liste h2 {
+  color: #f1f5f9;
+}
+
+.carte {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #1a1d2b;
+  border: 1px solid #2d3148;
+  border-left: 4px solid #22d3ee;
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.carte img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #22d3ee;
+}
+
+.carte p {
+  margin: 3px 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.carte p strong {
+  color: #f1f5f9;
+  font-size: 16px;
+}
+@keyframes tomber {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
