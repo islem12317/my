@@ -1,41 +1,67 @@
-import { useState } from 'react'
-import StudentForm from './StudentForm'
 import './App.css'
+import Header from './components/Header.jsx'
+import Navbar from './components/Navbar.jsx'
+import StudentCard from './components/StudentCard.jsx'
+import Footer from './components/Footer.jsx'
+import islem from './assets/islem.jpg'
+
+const etudiants = [
+  {
+    prenom: 'islem',
+    nom: 'ben salem',
+    email: 'azea01906@gmail.com',
+    telephone: '+216 20 823936',
+    filiere: "Génie Logiciel et Systèmes d'Information",
+    anneeEtude: '2ème année',
+    groupe: 'GLSI 2',
+    ville: 'Mahdia',
+  },
+  {
+    prenom: 'Sarra',
+    nom: 'Trabelsi',
+    email: 'sarra.trabelsi@gmail.com',
+    telephone: '+216 22 345 678',
+    filiere: "Génie Logiciel et Systèmes d'Information",
+    anneeEtude: '2ème année',
+    groupe: 'GLSI 1',
+    ville: 'Sousse',
+  },
+  {
+    prenom: 'Mariem',
+    nom: 'Khalfallah',
+    email: 'mariem.khalfallah@gmail.com',
+    telephone: '+216 27 567 890',
+    filiere: "Génie Logiciel et Systèmes d'Information",
+    anneeEtude: '2ème année',
+    groupe: 'GLSI 2',
+  
+  },
+]
 
 function App() {
-  // La liste des étudiants, vide au départ
-  const [etudiants, setEtudiants] = useState([])
-
-  // Cette fonction reçoit un étudiant du formulaire et l'ajoute à la liste
-  function ajouterEtudiant(nouvelEtudiant) {
-    const etudiantAvecId = {
-      ...nouvelEtudiant,
-      id: Date.now(),
-    }
-
-    setEtudiants((anciensEtudiants) => [...anciensEtudiants, etudiantAvecId])
-  }
-
   return (
     <div>
-      {/* On envoie la fonction au formulaire avec les props */}
-      <StudentForm onAjouterEtudiant={ajouterEtudiant} />
+      <Header />
+      <Navbar />
 
-      <div className="liste">
-        <h2>Liste des étudiants ({etudiants.length})</h2>
-
+      <div className="container">
         {etudiants.map((etudiant) => (
-          <div className="carte" key={etudiant.id}>
-            {etudiant.image && <img src={etudiant.image} alt={etudiant.nom} />}
-            <div>
-              <p><strong>{etudiant.prenom} {etudiant.nom}</strong></p>
-              <p>{etudiant.email} - {etudiant.telephone}</p>
-              <p>{etudiant.filiere} - Année {etudiant.anneeEtude} - Groupe {etudiant.groupe}</p>
-              <p>{etudiant.ville}</p>
-            </div>
-          </div>
+          <StudentCard
+            key={etudiant.email}
+            prenom={etudiant.prenom}
+            nom={etudiant.nom}
+            email={etudiant.email}
+            telephone={etudiant.telephone}
+            filiere={etudiant.filiere}
+            anneeEtude={etudiant.anneeEtude}
+            groupe={etudiant.groupe}
+            ville={etudiant.ville}
+            image={etudiant.prenom === 'islem' ? islem : null}
+          />
         ))}
       </div>
+
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,62 @@
+.footer {
+  margin-top: 20px;
+  padding: 28px 30px;
+  text-align: center;
+  background: linear-gradient(90deg, #172a52, #25427a, #172a52);
+  border: 2px solid #a5d8ff;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(165, 216, 255, 0.45);
+
+  /* à l'ouverture, le footer arrive de la droite vers la gauche */
+  animation: footer-glisse 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+/* Texte : même néon que les titres */
+.footer p {
+  display: inline-block;
+  margin: 0;
+  font-size: 17px;
+  color: #ffffff;
+  cursor: pointer;
+  text-shadow:
+    0 0 7px #ffffff,
+    0 0 15px #8ec5fc,
+    0 0 30px #a5d8ff,
+    0 0 50px #a5d8ff;
+  animation: footer-neon 2.5s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, filter 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.footer p:hover {
+  transform: scale(1.06);
+  letter-spacing: 2px;
+  filter: drop-shadow(0 0 14px #cfe8ff) brightness(1.25);
+}
+
+@keyframes footer-glisse {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes footer-neon {
+  from {
+    text-shadow:
+      0 0 4px #ffffff,
+      0 0 10px #8ec5fc,
+      0 0 20px #a5d8ff,
+      0 0 35px #a5d8ff;
+  }
+  to {
+    text-shadow:
+      0 0 8px #ffffff,
+      0 0 20px #cfe8ff,
+      0 0 40px #a5d8ff,
+      0 0 70px #5b9bd5;
+  }
+}

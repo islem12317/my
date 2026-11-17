@@ -1,0 +1,70 @@
+.header {
+  padding: 35px 20px;
+  text-align: center;
+  background: transparent;
+}
+
+/* Titre : néon qui pulse */
+.header h1 {
+  margin: 0;
+  font-size: 44px;
+  color: #ffffff;
+  cursor: pointer;
+  text-shadow:
+    0 0 7px #ffffff,
+    0 0 15px #8ec5fc,
+    0 0 30px #a5d8ff,
+    0 0 50px #a5d8ff;
+  animation: neon-pulse 2.5s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, filter 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* Sous-titre */
+.header p {
+  margin: 10px 0 0 0;
+  font-size: 18px;
+  color: #d6ebff;
+  cursor: pointer;
+  text-shadow: 0 0 8px #a5d8ff, 0 0 20px #5b9bd5;
+  animation: neon-pulse-doux 3s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, filter 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* Curseur dessus : plus de lumière */
+.header h1:hover {
+  transform: scale(1.06);
+  letter-spacing: 2px;
+  filter: drop-shadow(0 0 14px #cfe8ff) brightness(1.25);
+}
+
+.header p:hover {
+  transform: scale(1.05);
+  letter-spacing: 1px;
+  filter: drop-shadow(0 0 10px #cfe8ff) brightness(1.3);
+}
+
+@keyframes neon-pulse {
+  from {
+    text-shadow:
+      0 0 4px #ffffff,
+      0 0 10px #8ec5fc,
+      0 0 20px #a5d8ff,
+      0 0 35px #a5d8ff;
+  }
+  to {
+    text-shadow:
+      0 0 8px #ffffff,
+      0 0 20px #cfe8ff,
+      0 0 40px #a5d8ff,
+      0 0 70px #5b9bd5;
+  }
+}
+
+@keyframes neon-pulse-doux {
+  from {
+    text-shadow: 0 0 5px #a5d8ff, 0 0 12px #5b9bd5;
+  }
+  to {
+    text-shadow: 0 0 10px #cfe8ff, 0 0 28px #a5d8ff;
+  }
+}
